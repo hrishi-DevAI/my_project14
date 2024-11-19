@@ -3,3 +3,4 @@ ML_Project.egg-info
 __pycache__
 artifacts
 logs
+catboost_info
