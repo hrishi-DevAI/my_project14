@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Math Score</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        input, select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: #007BFF;
+        }
+
+        .btn {
+            padding: 12px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style
+</head>
+<body>
+    <div class="container">
+        <h1>Predict Math Score</h1>
+        <form action="{{ url_for('predict_datapoint') }}" method="POST">
+            <!-- Gender -->
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <!-- Race/Ethnicity -->
+            <label for="race_ethnicity">Race/Ethnicity:</label>
+            <select id="race_ethnicity" name="race_ethnicity" required>
+                <option value="group A">Group A</option>
+                <option value="group B">Group B</option>
+                <option value="group C">Group C</option>
+                <option value="group D">Group D</option>
+                <option value="group E">Group E</option>
+            </select>
+
+            <!-- Parental Level of Education -->
+            <label for="parental_level_of_education">Parental Level of Education:</label>
+            <select id="parental_level_of_education" name="parental_level_of_education" required>
+                <option value="high school or below">High School</option>
+                <option value="some college">Some College</option>
+                <option value="associate's degree">Associate's Degree</option>
+                <option value="bachelor's degree">Bachelor's Degree</option>
+                <option value="master's degree">Master's Degree</option>
+            </select>
+
+            <!-- Lunch -->
+            <label for="lunch">Lunch:</label>
+            <select id="lunch" name="lunch" required>
+                <option value="standard">Standard</option>
+                <option value="free/reduced">Free/Reduced</option>
+            </select>
+
+            <!-- Test Preparation Course -->
+            <label for="test_preparation_course">Test Preparation Course:</label>
+            <select id="test_preparation_course" name="test_preparation_course" required>
+                <option value="none">None</option>
+                <option value="completed">Completed</option>
+            </select>
+
+            <!-- Reading Score -->
+            <label for="reading_score">Reading Score:</label>
+            <input type="number" id="reading_score" name="reading_score" min="0" max="100" required>
+
+            <!-- Writing Score -->
+            <label for="writing_score">Writing Score:</label>
+            <input type="number" id="writing_score" name="writing_score" min="0" max="100" required>
+
+            <!-- Submit Button -->
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
